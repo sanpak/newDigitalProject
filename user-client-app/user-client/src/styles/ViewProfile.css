@@ -1,0 +1,42 @@
+.Home{
+  text-align: center;
+}
+
+.pictureSection{
+  height: 250px;
+}
+
+.aroundColumns{
+  width: 50%;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ourList {
+  list-style:none;
+}
+
+.tableStyles{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.tableRow {
+  padding: 5px;
+}
+
+.bigParagraph {
+  max-width: 70%;
+  margin: auto;
+  text-align: left;
+}
+
+.bigTextArea {
+border:solid 1px orange;
+  margin: 0px;
+  width: 70%;
+  height: 10%;
+}
