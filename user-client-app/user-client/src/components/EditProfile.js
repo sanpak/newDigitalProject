@@ -17,20 +17,6 @@ function EditProfile() {
     {id: 2, value: "Video"}
   ]);
 
-  const [dates, setDates] = useState([
-    {id: 0, value: "4/29"},
-    {id: 1, value: "5/3"},
-    {id: 2, value: "5/4"},
-    {id: 3, value: "5/5"},
-    {id: 4, value: "5/6"}
-  ]);
-
-  const [times, setTimes] = useState([
-    {id: 0, value: "3:00 PM"},
-    {id: 1, value: "4:00 PM"},
-    {id: 2, value: "5:00 PM"}
-  ]);
-
   const [multiplier, setMultiplier] = useState(1);
 
   const [openMedium, setOpenMedium] = useState(false);
@@ -59,6 +45,10 @@ function EditProfile() {
   const [messagingRate, setMessagingRate]  = useState(1);
   const [voiceRate, setVoiceRate]  = useState(2);
   const [videoRate, setVideoRate]  = useState(3);
+
+  const [messageEnabled, setMessageEnabled] = useState(true);
+  const [voiceEnabled, setVoiceEnabled] = useState(true);
+  const [videoEnabled , setVideoEnabled] = useState(true);
 
   const handleChange = e => {
       if (e.target.files.length) {
@@ -149,6 +139,47 @@ function EditProfile() {
     setOpenTime(!openTime);
   }
 
+  // function handleCheckboxClick(e, type){
+  //   e.preventDefault();
+  //
+  //   switch (type) {
+  //     case 0:
+  //       let val0 = messageEnabled;
+  //       setMessageEnabled(!val0);
+  //       break;
+  //     case 1:
+  //       let val1 = voiceEnabled;
+  //       setVoiceEnabled(!val1);
+  //       break;
+  //     case 2:
+  //       let val2 = videoEnabled;
+  //       setVideoEnabled(!val2)
+  //       break;
+  //     }
+  //
+  //     console.log("We in here!")
+  // }
+
+
+  function handleMessageCheckboxClick(){
+    setMessageEnabled(!messageEnabled)
+  }
+
+  function handleVoiceCheckboxClick(){
+    setVoiceEnabled(!voiceEnabled)
+  }
+
+  function handleVideoCheckboxClick(){
+    setVideoEnabled(!videoEnabled)
+  }
+
+  function getCheckBoxVals(e) {
+    e.preventDefault();
+    console.log("Our checkbox val messageEnabled: " + messageEnabled)
+    console.log("Our checkbox val voiceEnabled: " + voiceEnabled)
+    console.log("Our checkbox val videoEnabled: " + videoEnabled)
+  }
+
   function clickDecreaseRateButtonHandler(e, type){
     e.preventDefault();
 
@@ -189,6 +220,14 @@ function EditProfile() {
       }
   }
 
+  function handleSetMediumsPricesTable(e){
+    e.preventDefault();
+    console.log("clicked submit table information");
+    console.log(messagingRate);
+    console.log(voiceRate);
+    console.log(videoRate);
+  }
+
   const mediumList = mediums.map((m) =>
     <li key={m.id}>
     <button type="button" onClick={e => clickMediumHandler(e, m.id)}>{m.value}</button>
@@ -201,26 +240,35 @@ function EditProfile() {
     </li>
   );
 
-  const datesList = dates.map((d) =>
-    <li key={d.id}>
-    <button type="button" onClick={e => clickDateHandler(e, d.id)}>{d.value}</button>
-    </li>
-  );
+  // const datesList = dates.map((d) =>
+  //   <li key={d.id}>
+  //   <button type="button" onClick={e => clickDateHandler(e, d.id)}>{d.value}</button>
+  //   </li>
+  // );
 
-  const timesList = times.map((t) =>
-    <li key={t.id}>
-    <button type="button" onClick={e => clickTimeHandler(e, t.id)}>{t.value}</button>
-    </li>
-  );
+  // const timesList = times.map((t) =>
+  //   <li key={t.id}>
+  //   <button type="button" onClick={e => clickTimeHandler(e, t.id)}>{t.value}</button>
+  //   </li>
+  // );
 
    const printedComputeStatement = <p>
    <span style={importantStyleObj}>{mediums[selectedMedium].value}</span> conversation x <span style={importantStyleObj}>{durations[selectedDuration].value}</span> minutes = <span style={importantStyleObj}>${(selectedMedium + 1) * durations[selectedDuration].value * multiplier}</span>
     </p>;
 
+    const dumbFooter =
+    <div>
+      <br />
+      <br />
+      Please remember to save all of your changes!
+      <br />
+      <br />
+    </div>
 
-  const computeTimeDurationSection = <p>Speaking on
-  <span style={importantStyleObj}>{dates[selectedDate].value}</span> at
-  <span style={importantStyleObj}>{times[selectedTime].value}</span></p>;
+
+  // const computeTimeDurationSection = <p>Speaking on
+  // <span style={importantStyleObj}>{dates[selectedDate].value}</span> at
+  // <span style={importantStyleObj}>{times[selectedTime].value}</span></p>;
 
   // const computeTimeDurationSection = <p>Hello world</p>
 
@@ -311,6 +359,7 @@ function EditProfile() {
           <br/>
           <br/>
             <table>
+              <tbody>
               <tr>
                 <th>Medium</th>
                 <th>Enabled</th>
@@ -320,8 +369,13 @@ function EditProfile() {
                 <td>
                   Messaging
                 </td>
+
                 <td>
-                  <input type="checkbox" name="name" />
+                  <input
+                    type="checkbox"
+                    onChange={handleMessageCheckboxClick}
+                    checked={messageEnabled}
+                  />
                 </td>
                 <td>
                  <button onClick={e => clickDecreaseRateButtonHandler(e, 0)}>-</button>
@@ -333,7 +387,13 @@ function EditProfile() {
                 <td>
                    Voice
                   </td>
-                <td><input type="checkbox" name="name" /></td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      onChange={handleVoiceCheckboxClick}
+                      checked={voiceEnabled}
+                    />
+                  </td>
                   <td>
                   <button onClick={e => clickDecreaseRateButtonHandler(e, 1)}>-</button>
                     {" "}{voiceRate}
@@ -344,17 +404,38 @@ function EditProfile() {
                 <td>
                    Video
                   </td>
-                <td><input type="checkbox" name="name" /></td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      onChange={handleVideoCheckboxClick}
+                      checked={videoEnabled}
+                    />
+                  </td>
                   <td>
                   <button onClick={e => clickDecreaseRateButtonHandler(e, 2)}>-</button>
                     {" "}{videoRate}
                   <button onClick={e => clickIncreaseRateButtonHandler(e, 2)}>+</button>
                 </td>
               </tr>
+            </tbody>
             </table>
-          <input type="submit" value="Save mediums" />
+            <br />
+              <br />
+
+          <input onClick={e => handleSetMediumsPricesTable(e)} type="button" value="Save mediums" />
+
+          <br />
+          <br />
+
+          <div>Time slots available for users to request appointments with you during</div>
+
+
         </form>
+        <br />
+        <br />
+
       </div>
+      {dumbFooter}
     </div>
   );
 }

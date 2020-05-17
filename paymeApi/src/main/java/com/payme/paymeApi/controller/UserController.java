@@ -1,10 +1,7 @@
 package com.payme.paymeApi.controller;
 
 import com.payme.paymeApi.model.User;
-import com.payme.paymeApi.repository.UserRepository;
 import com.payme.paymeApi.service.UserService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.List;
 
 @Controller
 @RequestMapping(path="/api")
-//@Tag(name = "User", description = "User controller")
 public class UserController {
 
     @Autowired
