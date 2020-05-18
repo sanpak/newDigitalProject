@@ -6,7 +6,7 @@ import EditProfile from './components/EditProfile.js';
 function App() {
   return (
     <div>
-      <EditProfile />
+      <ViewProfile />
     </div>
   );
 }

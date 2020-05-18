@@ -183,7 +183,7 @@ function ViewProfile() {
       </div>
       <br />
 
-      <div className="baseball">
+      <div>
         <div className="bigParagraph">
           Please select how you would like to talk to {username} by clicking the Select Medium button. You can also dictate how long you would like to talk to {username} by clicking the Select Duration button. By default, a 10 minute messaging conversation is selected, but users often prefer phone, video, and longer periods of time.
         </div>
