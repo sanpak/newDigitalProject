@@ -154,6 +154,11 @@ function Home() {
 
   return (
     <div className="Home">
+      <nav class="sticky-top navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          Navbar
+        </a>
+      </nav>
       <h1>Book a Conversation With Jacob</h1>
 
       <div className="bigParagraph">
@@ -164,14 +169,19 @@ function Home() {
       <br />
 
       <div>
-        <img className="pictureSection" src={process.env.PUBLIC_URL + '/assets/profile.jpg'} alt="picture of user" />
+        <img
+          className="pictureSection"
+          src={process.env.PUBLIC_URL + "/assets/profile.jpg"}
+          alt="picture of user"
+        />
       </div>
 
       <div className="bigParagraph">
         Short Bio
         <br />
         <br />
-        {username} has a degree from a university. He is an expert in almost nothing.
+        {username} has a degree from a university. He is an expert in almost
+        nothing.
       </div>
       <br />
 
@@ -179,59 +189,72 @@ function Home() {
         Long Bio
         <br />
         <br />
-        If {username} was more accomplished. This would be a much longer section.
+        If {username} was more accomplished. This would be a much longer
+        section.
       </div>
       <br />
 
       <div className="baseball">
         <div className="bigParagraph">
-          Please select how you would like to talk to {username} by clicking the Select Medium button. You can also dictate how long you would like to talk to {username} by clicking the Select Duration button. By default, a 10 minute messaging conversation is selected, but users often prefer phone, video, and longer periods of time.
+          Please select how you would like to talk to {username} by clicking the
+          Select Medium button. You can also dictate how long you would like to
+          talk to {username} by clicking the Select Duration button. By default,
+          a 10 minute messaging conversation is selected, but users often prefer
+          phone, video, and longer periods of time.
         </div>
-          <br />
-          <br />
-          <table className="tableStyles">
-            <tbody>
-              <tr className="tableRow">
-                <th>Medium (for communication)</th>
-                <th>Time (in minutes)</th>
-              </tr>
-              <tr>
-                <td className="tableRow">
-                <button type="button" onClick={e => handleMediumDropdownButtonClick(e)}>
+        <br />
+        <br />
+        <table className="tableStyles">
+          <tbody>
+            <tr className="tableRow">
+              <th>Medium (for communication)</th>
+              <th>Time (in minutes)</th>
+            </tr>
+            <tr>
+              <td className="tableRow">
+                <button
+                  type="button"
+                  onClick={(e) => handleMediumDropdownButtonClick(e)}
+                >
                   Select Medium
                 </button>
                 {openMedium && (
                   <div>
-                    <ul className="ourList">
-                      {mediumList}
-                    </ul>
+                    <ul className="ourList">{mediumList}</ul>
                   </div>
                 )}
-                </td>
-                <td>
-                  <button type="button" onClick={e => handleDurationDropdownButtonClick(e)}>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  onClick={(e) => handleDurationDropdownButtonClick(e)}
+                >
                   Select Duration
-                  </button>
-                  {openDuration && (
-                    <div>
-                      <ul className="ourList">
-                        {durationsList}
-                      </ul>
-                    </div>
-                  )}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          {printedComputeStatement}
-          <div className="bigParagraph">
-            Intro message for {username}. Feel free to introduce yourself to {username}, ask questions you are hoping to be answered, or write whatever you would like! (optional) (1000 word limit):
-            </div>
-            <div>
-              <br />
-              <br />
-              <textarea className="bigTextArea" type="textarea" onChange={e => setIntro(e.target.value)} />
-            </div>
+                </button>
+                {openDuration && (
+                  <div>
+                    <ul className="ourList">{durationsList}</ul>
+                  </div>
+                )}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        {printedComputeStatement}
+        <div className="bigParagraph">
+          Intro message for {username}. Feel free to introduce yourself to{" "}
+          {username}, ask questions you are hoping to be answered, or write
+          whatever you would like! (optional) (1000 word limit):
+        </div>
+        <div>
+          <br />
+          <br />
+          <textarea
+            className="bigTextArea"
+            type="textarea"
+            onChange={(e) => setIntro(e.target.value)}
+          />
+        </div>
       </div>
       <br />
       <div>
@@ -246,26 +269,28 @@ function Home() {
             </tr>
             <tr>
               <td className="tableRow">
-              <button type="button" onClick={e => handleDateDropdownButtonClick(e)}>
-                Select From Available Dates
-              </button>
-              {openDate && (
-                <div>
-                  <ul className="ourList">
-                    {datesList}
-                  </ul>
-                </div>
-              )}
+                <button
+                  type="button"
+                  onClick={(e) => handleDateDropdownButtonClick(e)}
+                >
+                  Select From Available Dates
+                </button>
+                {openDate && (
+                  <div>
+                    <ul className="ourList">{datesList}</ul>
+                  </div>
+                )}
               </td>
               <td>
-                <button type="button" onClick={e => handleTimeDropdownButtonClick(e)}>
-                Select From Available Times
+                <button
+                  type="button"
+                  onClick={(e) => handleTimeDropdownButtonClick(e)}
+                >
+                  Select From Available Times
                 </button>
                 {openTime && (
                   <div>
-                    <ul className="ourList">
-                      {timesList}
-                    </ul>
+                    <ul className="ourList">{timesList}</ul>
                   </div>
                 )}
               </td>
@@ -278,9 +303,9 @@ function Home() {
       <br />
       <div>
         <br />
-        <button onClick={e => handleFinalSubmit(e)}>
-        Purchase Conversation
-      </button>
+        <button onClick={(e) => handleFinalSubmit(e)}>
+          Purchase Conversation
+        </button>
       </div>
     </div>
   );
