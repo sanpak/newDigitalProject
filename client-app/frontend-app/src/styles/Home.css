@@ -11,11 +11,15 @@
 
 .pictureSection{
   height: 250px;
-  
+
 }
 
 .aroundColumns{
   width: 50%;
+}
+
+.light-gray {
+  background-color: #d3d3d3;
 }
 
 .columns {

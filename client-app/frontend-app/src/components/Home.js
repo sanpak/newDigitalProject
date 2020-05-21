@@ -159,19 +159,39 @@ function Home() {
           Navbar
         </a>
       </nav>
-      <div class="container-fluid text-left">
-        <h1>Book a Conversation With Jacob</h1>
+      
+        
         <div class="row">
+        <div class="col-2 light-gray"></div>
           <div class="col-sm-4">
               
               <div>
                 Name:
                 <br />
                 {username}
+                <br />
+                <br />
+                  <h3>Short Bio</h3>
+                  {username} has a degree from a university. He is an expert in almost
+                  nothing.
+                <br />
+                <br />
+                <h3>Long Bio</h3>
+                If {username} was more accomplished. This would be a much longer
+                section.
+
+                <br />
+                <br />
+                <p>Please select how you would like to talk to {username} by clicking the
+                Select Medium button. You can also dictate how long you would like to
+                talk to {username} by clicking the Select Duration button. By default,
+                a 10 minute messaging conversation is selected, but users often prefer
+                phone, video, and longer periods of time.
+                </p>
               </div>
           </div>
         
-        <div class="col-sm-8">
+        <div class="col-sm">
             <img class="img-fluid"
               className="pictureSection"
               src={process.env.PUBLIC_URL + "/assets/profile.jpg"}
@@ -179,36 +199,17 @@ function Home() {
             />
         </div>
         </div>
-      </div>
+      
       
 
-    
-
       <div className="bigParagraph">
-        Short Bio
-        <br />
-        <br />
-        {username} has a degree from a university. He is an expert in almost
-        nothing.
-      </div>
-      <br />
-
-      <div className="bigParagraph">
-        Long Bio
-        <br />
-        <br />
-        If {username} was more accomplished. This would be a much longer
-        section.
+        
       </div>
       <br />
 
       <div className="baseball">
         <div className="bigParagraph">
-          Please select how you would like to talk to {username} by clicking the
-          Select Medium button. You can also dictate how long you would like to
-          talk to {username} by clicking the Select Duration button. By default,
-          a 10 minute messaging conversation is selected, but users often prefer
-          phone, video, and longer periods of time.
+          
         </div>
         <br />
         <br />

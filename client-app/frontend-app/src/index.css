@@ -1,8 +1,8 @@
 /*Box model HACK*/
 
-/* * {
+* {
   border: 1px solid red !important;
-} */
+}
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
