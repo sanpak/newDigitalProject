@@ -170,19 +170,19 @@ function Home() {
                 {username}
               </div>
           </div>
+        
+        <div class="col-sm-8">
+            <img class="img-fluid"
+              className="pictureSection"
+              src={process.env.PUBLIC_URL + "/assets/profile.jpg"}
+              alt="picture of user"
+            />
+        </div>
         </div>
       </div>
       
 
-      
-
-      <div>
-        <img
-          className="pictureSection"
-          src={process.env.PUBLIC_URL + "/assets/profile.jpg"}
-          alt="picture of user"
-        />
-      </div>
+    
 
       <div className="bigParagraph">
         Short Bio
