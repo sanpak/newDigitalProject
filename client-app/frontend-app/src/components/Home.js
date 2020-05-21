@@ -159,25 +159,24 @@ function Home() {
           Navbar
         </a>
       </nav>
-      <div class="container">
+      <div class="container-fluid text-left">
+        <h1>Book a Conversation With Jacob</h1>
         <div class="row">
           <div class="col-sm-4">
-            <h1>Book a Conversation With Jacob</h1>
-            <div className="bigParagraph">
+              
+              <div>
                 Name:
-             <br />
-               {username}
-            </div>
-              <br />
-
-            <div>
-            
+                <br />
+                {username}
+              </div>
           </div>
         </div>
       </div>
       
 
       
+
+      <div>
         <img
           className="pictureSection"
           src={process.env.PUBLIC_URL + "/assets/profile.jpg"}

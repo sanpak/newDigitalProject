@@ -1,9 +1,12 @@
 
 
 .Home{
-  text-align: center;
+  text-align: left;
 }
 
+.text-left {
+  text-align: left;
+}
 
 .pictureSection{
   height: 250px;
