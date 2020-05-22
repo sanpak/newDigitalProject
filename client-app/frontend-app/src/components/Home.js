@@ -165,10 +165,21 @@ function Home() {
 
       <div class="container-fluid">
         <div class="row mb-1">
-          <div class="col m-3">col1</div>
-          <div class="col m-3">col2</div>
-          <div class="col m-3">col3</div>
-          <div class="col m-3">col4</div>
+          <div class="shadow-sm col m-3 p-3 round-border white-bk">col1</div>
+          <div class="shadow-sm col m-3 p-3 round-border white-bk">
+            <img class="img-thumbnail border-0"
+              src={process.env.PUBLIC_URL + "/assets/profile.jpg"}
+              alt="picture of user"
+            />
+                <br />
+            {username}
+            <br />
+            <br />
+          </div>
+          <div class="shadow-sm col m-3 p-3 round-border white-bk">
+          
+          </div>
+          <div class="shadow-sm col m-3 p-3 round-border white-bk">col4</div>
         </div>
 
         <div class="row mb-5">

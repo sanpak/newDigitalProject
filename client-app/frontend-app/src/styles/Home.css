@@ -8,6 +8,15 @@
   background-color: #f1f8fc;
 }
 
+.round-border {
+  border-radius: 10px;
+}
+
+.white-bk {
+  background-color: white;
+}
+
+
 .text-left {
   text-align: left;
 }
